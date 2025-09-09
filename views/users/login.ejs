@@ -1,0 +1,43 @@
+<% layout("./layouts/boilerplate.ejs") %>
+
+<div class="row mt-5 mb-5">
+    <div class="col-8 col-lg-5 col-md-6 offset-2 offset-lg-3">
+        <h3 class="mb-3">Login on GharExpress</h3>
+        <form 
+            action="/login" 
+            method="post" 
+            novalidate 
+            class="needs-validation"
+            >
+            <div>
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input 
+                    name="username"
+                    id="username" 
+                    type="text" 
+                    placeholder="John Doe" 
+                    class="form-control"
+                    required
+                    >
+                    <div class="invalid-feedback">Username should be valid!</div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input 
+                    name="password"
+                    id="password" 
+                    type="password" 
+                    placeholder="••••••••"
+                    class="form-control"
+                    required
+                    >
+                    <div class="invalid-feedback">Password should be valid!</div>
+                </div>
+                <button class="btn btn-success"> Login </button>
+            </div>  
+        </form>
+        <p class="small mt-3">Don't have an account <a href="/signup">signup</a></p>
+    </div> 
+</div>   

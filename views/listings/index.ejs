@@ -1,0 +1,32 @@
+<% layout("./layouts/boilerplate") %> <!-- Use boilerplate layout -->
+
+<% if (allListings[0]) { %> <!-- Check if there are listings -->
+    <div class="container mt-4">
+        <h3>All Listings</h3>
+        <div class="row">
+            <% for(let listing of allListings){ %> <!-- Loop through all listings -->
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-2">
+                    <a href="/listings/<%= listing._id %>" class="listing-link"> <!-- Link to listing details(show page) -->
+                        <div class="card listing-card">
+                            <img 
+                                src="<%= listing.image.url %>" 
+                                class="card-img-top" 
+                                alt="listing_image" 
+                                />
+                            <div class="card-img-overlay"></div> <!-- Overlay effect -->
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <b>
+                                        <%= listing.title %> <!-- Listing title -->
+                                    </b> <br>
+                                    &#8377; 
+                                    <%= listing.price.toLocaleString("en-IN") %> / month <!-- Listing price -->
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <% } %>
+        </div>
+    </div>
+    <% } %>

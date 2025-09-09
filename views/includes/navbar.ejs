@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-sm bg-body-light border-bottom sticky-top">
+  <!-- Navbar container -->
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass"></i></a> <!-- Brand icon -->
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span> <!-- Toggler icon for mobile -->
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Navbar links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="/listings">Explore</a> <!-- Link to explore listings -->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/listings/new">Add New Listing</a> <!-- Link to add new listing -->
+        </li>
+      </ul>
+      <div class="navbar-nav ms-auto me-md-10 me-5 mb-2 mb-lg-0">
+        <% if (!currentUser) { %>
+          <li class="nav-item">
+            <a class="nav-link" href="/signup">Sign Up</a> <!-- Link to signup page -->
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a> <!-- Link to login page -->
+          </li>
+        <% } %>
+        <% if (currentUser) {%>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">Log Out</a> <!-- Link to logout -->
+          </li>
+        <%} %>
+      </div>
+      <!-- End of navbar links -->
+    </div>
+
+  </div>
+  <!-- End of navbar container -->
+</nav>

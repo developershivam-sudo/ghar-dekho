@@ -1,0 +1,27 @@
+<!-- Check for success flash message and display success message -->
+<% if (success && success.length) { %>
+    <div class="alert alert-success fade show alert-dismissible col-lg-6 col-8 offset-lg-3 offset-2 text-center" role="alert">           
+        <%= success %>
+        <button 
+            type="button" 
+            class="btn-close" 
+            data-bs-dismiss="alert" 
+            aria-label="Close"
+            >
+        </button>
+    </div>
+<% } %>
+
+<!-- Checks for error flash message and display error message -->
+<% if (error && error.length) { %>
+    <div class="alert alert-danger fade show alert-dismissible col-lg-6 col-8 offset-lg-3 offset-3 text-center" role="alert">           
+        <%= error %>
+        <button 
+            type="button" 
+            class="btn-close" 
+            data-bs-dismiss="alert" 
+            aria-label="Close"
+            >
+        </button>
+    </div>
+<% } %>

@@ -1,0 +1,105 @@
+/* Set base font and layout for body */
+body {
+    font-family: "Plus Jakarata Sans", sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Container flex to keep footer at bottom */
+.container {
+    flex: 1; /* to stick the footer at bottom */
+}
+
+/* Navbar styles */
+.navbar {
+    /* height: 5rem; */
+    background-color: #fff;
+}
+
+/* Compass icon color and size */
+.fa-compass {
+    color: #fe4244;
+    height: 2rem;
+}
+
+/* Compass icon hover effect */
+.fa-compass:hover {
+    opacity: 0.7;
+}
+
+/* Navbar link color */
+.nav-link {
+    color: black !important;
+}
+
+/* Navbar link hover effect */
+.nav-link:hover {
+    opacity: 0.7;
+}
+
+/* Footer margin */
+.foot {
+    margin-top: 5px;
+}
+
+/* Show page image height */
+.show-img {
+    height: 40vh;
+}
+
+/* Show page button layout */
+.btns {
+    display: flex;
+}
+
+/* Show page card padding */
+.show-card {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* New page button color */
+.btn-color {
+    background-color: #fe4244 !important;
+    border: none !important;
+}
+
+/* Listing card styles */
+.listing-card {
+    border: none !important;
+    margin-bottom: 2rem !important;
+}
+
+/* Card image styles */
+.card-img-top {
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+
+/* Card body padding */
+.card-body {
+    padding: 0 !important;
+}
+
+/* Card text font weight */
+.card-text p {
+    font-weight: 400;
+}
+
+/* Remove underline from listing links */
+.listing-link {
+    text-decoration: none;
+}
+
+/* Card image overlay effect */
+.card-img-overlay {
+    opacity: 0;
+}
+
+/* Card image overlay hover effect */
+.card-img-overlay:hover {
+    opacity: 0.2;
+    background: #fff;
+}

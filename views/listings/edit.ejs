@@ -1,0 +1,108 @@
+<% layout("./layouts/boilerplate") %> <!-- Use boilerplate layout -->
+
+<!-- Render edit form for listing details -->
+<div class="row mt-3 mb-5">
+    <div class="col-8 offset-2">
+        <form method="post" 
+            action="/listings/<%=listing._id%>?_method=PUT" 
+            novalidate 
+            class="needs-validation"
+            enctype="multipart/form-data"
+            >
+            <fieldset>
+                <h3>Edit Details</h3>
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input 
+                    name="listing[title]" 
+                    id="title"
+                    type="text" 
+                    value="<%=listing.title%>" 
+                    class="form-control"
+                    required
+                    >
+                    <div class="valid-feedback">Title looks good!</div>
+                    <div class="invalid-feedback">Title should be valid!</div>
+                </div>
+                    
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea 
+                        name="listing[description]"
+                        id="description"
+                        class="form-control"
+                        required
+                        ><%=listing.description%> 
+                    </textarea>
+                    <div class="valid-feedback">Description looks good!</div>
+                    <div class="invalid-feedback">Enter a short description!</div>
+                </div>
+                    
+                <div class="mb-3">
+                    <p>Original Listing Image</p>
+                    <img 
+                        src="<%= originalImageUrl %>" 
+                        alt="listing-image"
+                        width="250px"
+                    >
+                </div>
+
+                <div class="mb-3">
+                    <label for="image" class="form-label">Upload New Image</label>
+                    <input 
+                    name="listing[image]" 
+                    id="image"
+                    type="file" 
+                    class="form-control"
+                    >
+                </div>                    
+                    
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label for="price" class="form-label">Price</label>
+                        <input 
+                        name="listing[price]" 
+                        id="price"
+                        type="number" 
+                        value="<%=listing.price%>" 
+                        class="form-control"
+                        required
+                        >
+                        <div class="valid-feedback">Price looks good!</div>
+                        <div class="invalid-feedback">Price should be valid!</div>
+                    </div>
+                    
+                    <div class="mb-3 col-md-8">
+                        <label for="country" class="form-label">Country</label>
+                        <input 
+                        name="listing[country]" 
+                        id="country"
+                        type="text" 
+                        value="<%=listing.country%>"
+                        class="form-control"
+                        required
+                        >
+                        <div class="valid-feedback">Country name looks good!</div>
+                        <div class="invalid-feedback">Country name should be valid!</div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="location" class="form-label ">Location</label>
+                    <input 
+                    name="listing[location]" 
+                    id="location"
+                    type="text" 
+                    value="<%=listing.location%>"
+                    class="form-control"
+                    required
+                    >
+                    <div class="valid-feedback">Location looks good!</div>
+                    <div class="invalid-feedback">Location should be valid!</div>
+                </div>
+
+                <button class="btn btn-dark btn-color"> Edit </button>
+            </fieldset>
+        </form>
+    </div>
+</div>
