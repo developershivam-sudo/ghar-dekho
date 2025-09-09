@@ -1,8 +1,10 @@
+const { default: dbConnect } = require("../lib/dbConnect.js");
 const Listing = require("../models/listing.js");
 const Review = require("../models/reviews.js");
 
 // Create a new review and add it to a listing
 module.exports.createReview = async (req, res) => {
+    dbConnect();
     let listing = await Listing.findById(req.params.id); // Find listing by ID
     let newReview = new Review(req.body.review); // Create new review from request data
 
@@ -21,6 +23,7 @@ module.exports.createReview = async (req, res) => {
 
 // Delete a review from a listing
 module.exports.destroyReview = async (req, res) => {
+    dbConnect();
     let { id, reviewId } = req.params; // Get listing and review IDs from params
 
     await Listing.findByIdAndUpdate(id, { $pull: { reviews: reviewId } }); // Remove review reference from listing

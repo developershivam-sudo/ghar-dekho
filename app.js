@@ -20,14 +20,6 @@ const listingRouter = require("./routes/listingRoutes.js");
 const reviewRouter = require("./routes/reviewRoutes.js");
 const userRouter = require("./routes/userRoutes.js");
 
-// Connect to MongoDB database
-async function main() {
-    await mongoose.connect(`${process.env.MONGO_URL}`);
-};
-main()
-    .then(() => console.log("DB connected..."))
-    .catch((err) => {console.log(err)});
-
 
 // Set EJS as the view engine and configure views directory
 app.set("view engine", "ejs");

@@ -1,19 +1,23 @@
 const Listing = require("../models/listing.js");
 const { cloudinary } = require("../cloud-config.js");
+const { default: dbConnect } = require("../lib/dbConnect.js");
 
 // Show all listings
 module.exports.index = async (req, res) => {
+    dbConnect();
     const allListings = await Listing.find({});
     res.render("listings/index.ejs", { allListings });
 };
 
 // Render form for creating a new listing
 module.exports.renderNewForm = async (req, res) => {
+    dbConnect();
     res.render("listings/new.ejs");
 };
 
 // Create a new listing and save to DB
 module.exports.createListing = async (req, res) => {
+    dbConnect();
     const newListing = new Listing(req.body.listing);
 
     newListing.owner = req.user._id;    // set owner of the listing
@@ -29,6 +33,7 @@ module.exports.createListing = async (req, res) => {
 
 // Show details of a single listing
 module.exports.showListing = async (req, res) => {
+    dbConnect();
     const { id } = req.params;
     const listing = await Listing.findById(id)
         .populate({
@@ -48,6 +53,7 @@ module.exports.showListing = async (req, res) => {
 
 // Render edit form for a listing
 module.exports.renderEditForm = async (req, res) => {
+    dbConnect();
     const { id } = req.params;
     let listing = await Listing.findById(id);
     if (!listing) {
@@ -62,6 +68,7 @@ module.exports.renderEditForm = async (req, res) => {
 
 // Update a listing
 module.exports.updateListing = async (req, res) => {
+    dbConnect();
     if (!req.body.listing) {
         throw new ExpressError(400, "Send valid data for listing!");
     }
@@ -90,6 +97,7 @@ module.exports.updateListing = async (req, res) => {
 
 // Delete a listing
 module.exports.destroyListing = async (req, res) => {
+    dbConnect();
     const { id } = req.params;
     const listing = await Listing.findById(id);
 

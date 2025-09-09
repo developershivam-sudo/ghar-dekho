@@ -1,12 +1,15 @@
+const { default: dbConnect } = require("../lib/dbConnect.js");
 const User = require("../models/user.js");
 
 // display signup form
 module.exports.renderSignUpForm = async (req, res) => {
+    dbConnect();
     res.render("./users/signup.ejs");
 };
 
 // add new user to DB
 module.exports.signUp = async (req, res) => {
+    dbConnect();
     try {
         let { username, email, password } = req.body;
         let newUser = new User({ username, email });
@@ -28,17 +31,20 @@ module.exports.signUp = async (req, res) => {
 
 // display login form
 module.exports.renderLoginForm = async (req, res) => {
+    dbConnect();
     res.render("./users/login.ejs");
 };
 
 // verify user and login to website
 module.exports.login = async (req, res) => {
+    dbConnect();
     req.flash("success", "Welcome to GharExpress");
     res.redirect(res.locals.redirectUrlAfterLogin || "/listings" );
 };
 
 // logout by ending the current session / dedeserializeUser
 module.exports.logout = async (req, res, next) => {
+    dbConnect();
     req.logout((err) => {
         if (err) {
             return next(err);
