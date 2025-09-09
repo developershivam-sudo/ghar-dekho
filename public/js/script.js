@@ -6,7 +6,7 @@
   const forms = document.querySelectorAll('.needs-validation')
 
   // Loop over each form and add submit event listener
-  Array.isArray(forms).forEach(form => {
+  Array.from(forms).forEach(form => {
     form.addEventListener('submit', event => {
       if (!form.checkValidity()) { // If form is invalid
         event.preventDefault() // Prevent form submission
